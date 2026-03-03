@@ -1,0 +1,144 @@
+2026-03-03 13:16:04  INFO      main — Starting CEF NAV pipeline for 2 tickers: ['PDI', 'BST']
+2026-03-03 13:16:04  INFO      main — ── Processing PDI ──
+2026-03-03 13:16:04  INFO      scraper — Market price for PDI: 18.0
+2026-03-03 13:16:04  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PDI
+2026-03-03 13:16:09  INFO      scraper — NAV for PDI: 23.8500 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:16:09  INFO      main — ── Processing BST ──
+2026-03-03 13:16:09  INFO      scraper — Market price for BST: 40.27
+2026-03-03 13:16:09  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/BST
+2026-03-03 13:16:12  INFO      scraper — NAV for BST: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:16:12  INFO      storage — DataFrame assembled: 2 rows × 10 cols
+2026-03-03 13:16:12  INFO      storage — Snapshot exported → /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_131612.csv
+2026-03-03 13:16:12  INFO      main — Pipeline complete. Output: /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_131612.csv
+2026-03-03 13:19:46  INFO      main — Starting CEF NAV pipeline for 10 tickers: ['PDI', 'BST', 'UTF', 'AWP', 'ECC', 'GOF', 'PTY', 'RQI', 'EVN', 'HYT']
+2026-03-03 13:19:46  INFO      main — ── Processing PDI ──
+2026-03-03 13:19:46  INFO      scraper — Market price for PDI: 18.0
+2026-03-03 13:19:46  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PDI
+2026-03-03 13:19:50  INFO      scraper — NAV for PDI: 23.8500 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:19:50  INFO      main — ── Processing BST ──
+2026-03-03 13:19:50  INFO      scraper — Market price for BST: 40.27
+2026-03-03 13:19:50  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/BST
+2026-03-03 13:19:53  INFO      scraper — NAV for BST: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:19:53  INFO      main — ── Processing UTF ──
+2026-03-03 13:19:54  INFO      scraper — Market price for UTF: 27.24
+2026-03-03 13:19:54  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/UTF
+2026-03-03 13:19:57  INFO      scraper — NAV for UTF: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:19:57  INFO      main — ── Processing AWP ──
+2026-03-03 13:19:57  INFO      scraper — Market price for AWP: 12.56
+2026-03-03 13:19:57  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/AWP
+2026-03-03 13:20:01  INFO      scraper — NAV for AWP: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:01  INFO      main — ── Processing ECC ──
+2026-03-03 13:20:01  INFO      scraper — Market price for ECC: 4.13
+2026-03-03 13:20:01  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/ECC
+2026-03-03 13:20:04  INFO      scraper — NAV for ECC: 19.9300 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:04  INFO      main — ── Processing GOF ──
+2026-03-03 13:20:05  INFO      scraper — Market price for GOF: 11.93
+2026-03-03 13:20:05  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/GOF
+2026-03-03 13:20:08  INFO      scraper — NAV for GOF: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:08  INFO      main — ── Processing PTY ──
+2026-03-03 13:20:08  INFO      scraper — Market price for PTY: 12.82
+2026-03-03 13:20:08  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PTY
+2026-03-03 13:20:12  INFO      scraper — NAV for PTY: 14.3000 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:12  INFO      main — ── Processing RQI ──
+2026-03-03 13:20:12  INFO      scraper — Market price for RQI: 13.35
+2026-03-03 13:20:12  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/RQI
+2026-03-03 13:20:15  INFO      scraper — NAV for RQI: 14.5700 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:16  INFO      main — ── Processing EVN ──
+2026-03-03 13:20:16  INFO      scraper — Market price for EVN: 10.99
+2026-03-03 13:20:16  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/EVN
+2026-03-03 13:20:19  INFO      scraper — NAV for EVN: 14.9700 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:19  INFO      main — ── Processing HYT ──
+2026-03-03 13:20:19  INFO      scraper — Market price for HYT: 8.77
+2026-03-03 13:20:19  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/HYT
+2026-03-03 13:20:23  INFO      scraper — NAV for HYT: 14.3300 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:23  INFO      storage — DataFrame assembled: 10 rows × 10 cols
+2026-03-03 13:20:23  INFO      storage — Snapshot exported → /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_132023.csv
+2026-03-03 13:20:23  INFO      main — Pipeline complete. Output: /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_132023.csv
+2026-03-03 13:20:23  INFO      main — Starting CEF NAV pipeline for 10 tickers: ['PDI', 'BST', 'UTF', 'AWP', 'ECC', 'GOF', 'PTY', 'RQI', 'EVN', 'HYT']
+2026-03-03 13:20:23  INFO      main — ── Processing PDI ──
+2026-03-03 13:20:24  INFO      scraper — Market price for PDI: 18.0
+2026-03-03 13:20:24  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PDI
+2026-03-03 13:20:27  INFO      scraper — NAV for PDI: 23.8500 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:27  INFO      main — ── Processing BST ──
+2026-03-03 13:20:27  INFO      scraper — Market price for BST: 40.27
+2026-03-03 13:20:27  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/BST
+2026-03-03 13:20:31  INFO      scraper — NAV for BST: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:31  INFO      main — ── Processing UTF ──
+2026-03-03 13:20:31  INFO      scraper — Market price for UTF: 27.24
+2026-03-03 13:20:31  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/UTF
+2026-03-03 13:20:34  INFO      scraper — NAV for UTF: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:34  INFO      main — ── Processing AWP ──
+2026-03-03 13:20:34  INFO      scraper — Market price for AWP: 12.56
+2026-03-03 13:20:34  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/AWP
+2026-03-03 13:20:38  INFO      scraper — NAV for AWP: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:38  INFO      main — ── Processing ECC ──
+2026-03-03 13:20:38  INFO      scraper — Market price for ECC: 4.13
+2026-03-03 13:20:38  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/ECC
+2026-03-03 13:20:41  INFO      scraper — NAV for ECC: 19.9300 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:42  INFO      main — ── Processing GOF ──
+2026-03-03 13:20:42  INFO      scraper — Market price for GOF: 11.93
+2026-03-03 13:20:42  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/GOF
+2026-03-03 13:20:45  INFO      scraper — NAV for GOF: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:45  INFO      main — ── Processing PTY ──
+2026-03-03 13:20:45  INFO      scraper — Market price for PTY: 12.82
+2026-03-03 13:20:45  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PTY
+2026-03-03 13:20:49  INFO      scraper — NAV for PTY: 14.3000 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:49  INFO      main — ── Processing RQI ──
+2026-03-03 13:20:49  INFO      scraper — Market price for RQI: 13.35
+2026-03-03 13:20:49  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/RQI
+2026-03-03 13:20:53  INFO      scraper — NAV for RQI: 14.5700 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:53  INFO      main — ── Processing EVN ──
+2026-03-03 13:20:53  INFO      scraper — Market price for EVN: 10.99
+2026-03-03 13:20:53  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/EVN
+2026-03-03 13:20:56  INFO      scraper — NAV for EVN: 14.9700 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:20:56  INFO      main — ── Processing HYT ──
+2026-03-03 13:20:56  INFO      scraper — Market price for HYT: 8.77
+2026-03-03 13:20:56  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/HYT
+2026-03-03 13:21:00  INFO      scraper — NAV for HYT: 14.3300 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:21:00  INFO      storage — DataFrame assembled: 10 rows × 10 cols
+2026-03-03 13:21:00  INFO      storage — Snapshot exported → /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_132100.csv
+2026-03-03 13:21:00  INFO      main — Pipeline complete. Output: /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_132100.csv
+2026-03-03 13:23:29  INFO      main — Starting CEF NAV pipeline for 10 tickers: ['PDI', 'BST', 'UTF', 'AWP', 'ECC', 'GOF', 'PTY', 'RQI', 'EVN', 'HYT']
+2026-03-03 13:23:29  INFO      main — ── Processing PDI ──
+2026-03-03 13:23:33  INFO      scraper — Market price for PDI: 18.0
+2026-03-03 13:23:33  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PDI
+2026-03-03 13:23:37  INFO      scraper — NAV for PDI: 23.8500 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:37  INFO      main — ── Processing BST ──
+2026-03-03 13:23:37  INFO      scraper — Market price for BST: 40.27
+2026-03-03 13:23:37  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/BST
+2026-03-03 13:23:40  INFO      scraper — NAV for BST: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:41  INFO      main — ── Processing UTF ──
+2026-03-03 13:23:41  INFO      scraper — Market price for UTF: 27.24
+2026-03-03 13:23:41  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/UTF
+2026-03-03 13:23:44  INFO      scraper — NAV for UTF: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:44  INFO      main — ── Processing AWP ──
+2026-03-03 13:23:44  INFO      scraper — Market price for AWP: 12.56
+2026-03-03 13:23:44  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/AWP
+2026-03-03 13:23:48  INFO      scraper — NAV for AWP: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:48  INFO      main — ── Processing ECC ──
+2026-03-03 13:23:48  INFO      scraper — Market price for ECC: 4.13
+2026-03-03 13:23:48  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/ECC
+2026-03-03 13:23:51  INFO      scraper — NAV for ECC: 19.9300 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:51  INFO      main — ── Processing GOF ──
+2026-03-03 13:23:51  INFO      scraper — Market price for GOF: 11.93
+2026-03-03 13:23:51  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/GOF
+2026-03-03 13:23:55  INFO      scraper — NAV for GOF: 19.0600 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:55  INFO      main — ── Processing PTY ──
+2026-03-03 13:23:55  INFO      scraper — Market price for PTY: 12.82
+2026-03-03 13:23:55  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/PTY
+2026-03-03 13:23:59  INFO      scraper — NAV for PTY: 14.3000 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:23:59  INFO      main — ── Processing RQI ──
+2026-03-03 13:23:59  INFO      scraper — Market price for RQI: 13.35
+2026-03-03 13:23:59  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/RQI
+2026-03-03 13:24:02  INFO      scraper — NAV for RQI: 14.5700 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:24:02  INFO      main — ── Processing EVN ──
+2026-03-03 13:24:03  INFO      scraper — Market price for EVN: 10.99
+2026-03-03 13:24:03  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/EVN
+2026-03-03 13:24:06  INFO      scraper — NAV for EVN: 14.9700 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:24:06  INFO      main — ── Processing HYT ──
+2026-03-03 13:24:06  INFO      scraper — Market price for HYT: 8.77
+2026-03-03 13:24:06  INFO      scraper — Sleeping 3.0s before scraping https://www.cefconnect.com/fund/HYT
+2026-03-03 13:24:10  INFO      scraper — NAV for HYT: 14.3300 (as of 2026-03-03 00:00:00+00:00)
+2026-03-03 13:24:10  INFO      storage — DataFrame assembled: 10 rows × 10 cols
+2026-03-03 13:24:10  INFO      storage — Snapshot exported → /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_132410.csv
+2026-03-03 13:24:10  INFO      main — Pipeline complete. Output: /Users/rafi/Downloads/CEF models/output/cef_snapshot_20260303_132410.csv
