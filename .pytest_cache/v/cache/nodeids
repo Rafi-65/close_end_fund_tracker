@@ -1,0 +1,15 @@
+[
+  "test_model.py::TestCalcNav::test_all_none_returns_none",
+  "test_model.py::TestCalcNav::test_basic_calculation",
+  "test_model.py::TestCalcNav::test_liabilities_exceed_assets",
+  "test_model.py::TestCalcNav::test_none_assets_returns_none",
+  "test_model.py::TestCalcNav::test_none_liabilities_returns_none",
+  "test_model.py::TestCalcNav::test_none_shares_returns_none",
+  "test_model.py::TestCalcNav::test_rounding",
+  "test_model.py::TestCalcNav::test_zero_liabilities",
+  "test_model.py::TestCalcNav::test_zero_shares_returns_none",
+  "test_model.py::TestNavToPremiumDiscount::test_at_par",
+  "test_model.py::TestNavToPremiumDiscount::test_discount_scenario",
+  "test_model.py::TestNavToPremiumDiscount::test_premium_scenario",
+  "test_model.py::TestNavToPremiumDiscount::test_with_none_nav"
+]
