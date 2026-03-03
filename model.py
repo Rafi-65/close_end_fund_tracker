@@ -3,6 +3,7 @@ model.py
 --------
 Quantitative model logic for the CEF NAV pipeline.
 
+  - calc_nav               : (total_assets - total_liabilities) / shares_outstanding
   - calc_premium_discount  : ((price - nav) / nav) * 100
   - calc_z_score           : rolling 1-year Z-score of premium/discount
   - build_hist_discounts   : assemble a historical discount series from prices
@@ -23,6 +24,46 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 # Core calculations
 # ---------------------------------------------------------------------------
+
+def calc_nav(
+    total_assets: Optional[float],
+    total_liabilities: Optional[float],
+    shares_outstanding: Optional[float],
+) -> Optional[float]:
+    """
+    Calculate Net Asset Value (NAV) per share from fundamental data.
+
+    Formula:  NAV = (Total Assets − Total Liabilities) / Shares Outstanding
+
+    Parameters
+    ----------
+    total_assets        : fund's total assets in currency units
+    total_liabilities   : fund's total liabilities in currency units
+    shares_outstanding  : number of shares currently outstanding
+
+    Returns
+    -------
+    float  — NAV per share, rounded to 4 decimal places
+    None   — if any input is missing or shares_outstanding is zero
+    """
+    if total_assets is None or total_liabilities is None or shares_outstanding is None:
+        logger.warning(
+            "calc_nav: missing input(s) — assets=%s, liabilities=%s, shares=%s",
+            total_assets, total_liabilities, shares_outstanding,
+        )
+        return None
+
+    if shares_outstanding == 0:
+        logger.warning("calc_nav: shares_outstanding is zero — cannot compute NAV")
+        return None
+
+    nav = (total_assets - total_liabilities) / shares_outstanding
+    logger.info(
+        "calc_nav: assets=%.2f, liabilities=%.2f, shares=%.0f → NAV=%.4f",
+        total_assets, total_liabilities, shares_outstanding, nav,
+    )
+    return round(nav, 4)
+
 
 def calc_premium_discount(price: float, nav: float) -> Optional[float]:
     """

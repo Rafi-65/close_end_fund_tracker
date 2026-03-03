@@ -101,7 +101,78 @@ def fetch_market_price(ticker: str) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# NAV scraping — CEFConnect.com
+# Fund fundamentals (for NAV calculation)
+# ---------------------------------------------------------------------------
+
+def fetch_fund_fundamentals(ticker: str) -> dict:
+    """
+    Fetch total assets, total liabilities, and shares outstanding via yfinance.
+
+    These components are used by model.calc_nav() to compute:
+        NAV = (Total Assets − Total Liabilities) / Shares Outstanding
+
+    Returns
+    -------
+    dict with keys:
+        total_assets        (float | None)
+        total_liabilities   (float | None)
+        shares_outstanding  (float | None)
+        source              (str)
+    """
+    result = {
+        "total_assets": None,
+        "total_liabilities": None,
+        "shares_outstanding": None,
+        "source": "yfinance",
+    }
+
+    try:
+        tkr = yf.Ticker(ticker)
+
+        # --- Balance sheet ---
+        bs = tkr.balance_sheet
+        if bs is not None and not bs.empty:
+            # yfinance returns columns as dates; take the most recent column
+            latest = bs.iloc[:, 0]
+
+            if "Total Assets" in latest.index:
+                result["total_assets"] = float(latest["Total Assets"])
+
+            # yfinance may label the field differently
+            for label in [
+                "Total Liabilities Net Minority Interest",
+                "Total Liabilities",
+            ]:
+                if label in latest.index:
+                    result["total_liabilities"] = float(latest[label])
+                    break
+        else:
+            logger.warning("yfinance returned empty balance sheet for %s", ticker)
+
+        # --- Shares outstanding ---
+        info = tkr.info or {}
+        shares = info.get("sharesOutstanding")
+        if shares is not None:
+            result["shares_outstanding"] = float(shares)
+        else:
+            logger.warning("sharesOutstanding not available in yfinance info for %s", ticker)
+
+        logger.info(
+            "Fundamentals for %s: assets=%s, liabilities=%s, shares=%s",
+            ticker,
+            result["total_assets"],
+            result["total_liabilities"],
+            result["shares_outstanding"],
+        )
+
+    except Exception as exc:  # noqa: BLE001
+        logger.error("Error fetching fundamentals for %s: %s", ticker, exc)
+
+    return result
+
+
+# ---------------------------------------------------------------------------
+# NAV scraping — CEFConnect.com (fallback)
 # ---------------------------------------------------------------------------
 
 def fetch_nav(ticker: str) -> dict:

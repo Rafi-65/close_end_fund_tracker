@@ -21,7 +21,11 @@ logger = logging.getLogger(__name__)
 COLUMNS = [
     "Ticker",
     "Mkt_Price",
+    "Total_Assets",
+    "Total_Liabilities",
+    "Shares_Outstanding",
     "NAV",
+    "NAV_Source",
     "Disc_Prem_Pct",
     "Z_Score",
     "NAV_Date",
@@ -58,7 +62,8 @@ def build_dataframe(records: list[dict]) -> pd.DataFrame:
     df = df[COLUMNS]
 
     # Type coercions
-    for num_col in ["Mkt_Price", "NAV", "Disc_Prem_Pct", "Z_Score"]:
+    for num_col in ["Mkt_Price", "Total_Assets", "Total_Liabilities",
+                    "Shares_Outstanding", "NAV", "Disc_Prem_Pct", "Z_Score"]:
         df[num_col] = pd.to_numeric(df[num_col], errors="coerce")
 
     for bool_col in ["Price_Invalid", "NAV_Stale", "NAV_Missing"]:
@@ -119,8 +124,8 @@ def print_summary(df: pd.DataFrame) -> None:
     pd.set_option("display.width", 180)
     pd.set_option("display.float_format", "{:.4f}".format)
 
-    display_cols = ["Ticker", "Mkt_Price", "NAV", "Disc_Prem_Pct", "Z_Score",
-                    "Price_Invalid", "NAV_Stale", "NAV_Missing"]
+    display_cols = ["Ticker", "Mkt_Price", "NAV", "NAV_Source", "Disc_Prem_Pct",
+                    "Z_Score", "Price_Invalid", "NAV_Stale", "NAV_Missing"]
     subset = df[[c for c in display_cols if c in df.columns]]
 
     print("\n" + "=" * 90)

@@ -21,8 +21,8 @@ import sys
 from datetime import datetime, timezone
 
 from config import TICKERS
-from model import build_hist_discounts, calc_premium_discount, calc_z_score, validate_row
-from scraper import fetch_historical_prices, fetch_market_price, fetch_nav
+from model import build_hist_discounts, calc_nav, calc_premium_discount, calc_z_score, validate_row
+from scraper import fetch_fund_fundamentals, fetch_historical_prices, fetch_market_price, fetch_nav
 from storage import build_dataframe, export_snapshot, print_summary
 
 # ---------------------------------------------------------------------------
@@ -57,15 +57,29 @@ def process_ticker(ticker: str) -> dict:
     mkt_data = fetch_market_price(ticker)
     price: float | None = mkt_data["price"]
 
-    # 2. NAV (CEFConnect scrape)
-    nav_data = fetch_nav(ticker)
-    nav: float | None = nav_data["nav"]
-    nav_date = nav_data["nav_date"]
+    # 2. Fund fundamentals → calculate NAV
+    #    NAV = (Total Assets − Total Liabilities) / Shares Outstanding
+    fundamentals = fetch_fund_fundamentals(ticker)
+    total_assets = fundamentals["total_assets"]
+    total_liabilities = fundamentals["total_liabilities"]
+    shares_outstanding = fundamentals["shares_outstanding"]
 
-    # 3. Premium / discount
+    nav = calc_nav(total_assets, total_liabilities, shares_outstanding)
+    nav_source = "calculated" if nav is not None else None
+
+    # 3. Fallback: scrape NAV from CEFConnect if calculation failed
+    nav_date = None
+    if nav is None:
+        logger.info("[%s] Fundamental NAV unavailable — falling back to CEFConnect scrape", ticker)
+        nav_data = fetch_nav(ticker)
+        nav = nav_data["nav"]
+        nav_date = nav_data["nav_date"]
+        nav_source = "scraped" if nav is not None else None
+
+    # 4. Premium / discount
     disc_prem = calc_premium_discount(price, nav) if (price and nav) else None
 
-    # 4. Z-score — build from historical price series
+    # 5. Z-score — build from historical price series
     z_score = None
     if nav:
         hist_prices = fetch_historical_prices(ticker, period="1y")
@@ -74,13 +88,17 @@ def process_ticker(ticker: str) -> dict:
             if disc_prem is not None and hist_discounts:
                 z_score = calc_z_score(disc_prem, hist_discounts)
 
-    # 5. Validation
+    # 6. Validation
     flags = validate_row(ticker, price, nav, nav_date)
 
     return {
         "Ticker": ticker,
         "Mkt_Price": price,
+        "Total_Assets": total_assets,
+        "Total_Liabilities": total_liabilities,
+        "Shares_Outstanding": shares_outstanding,
         "NAV": nav,
+        "NAV_Source": nav_source,
         "Disc_Prem_Pct": disc_prem,
         "Z_Score": z_score,
         "NAV_Date": nav_date.isoformat() if nav_date else None,
