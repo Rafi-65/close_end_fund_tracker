@@ -3,3 +3,4 @@
 /output/*
 /cef_pipeline.log
 /cef_pipeline.log*
+.pytest_cache
